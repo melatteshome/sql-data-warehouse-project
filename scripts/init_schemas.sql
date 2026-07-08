@@ -1,14 +1,12 @@
-/*
-=============================================================
-Create Schemas
-=============================================================
-Script Purpose:
-    This script checks if the schemas have been created already 
-    and sets up the three schemas that we already defined
-    in our data archetecture for our project 'bronze', 'silver', and 'gold'.
-    This script is run on a database connection that has been set already.
-
-*/
+-- ============================================================
+-- Data Warehouse Database Setup
+-- MySQL version: 8.0+
+-- Purpose:
+--   Create logical warehouse layers:
+--   - Bronze: raw/staging data
+--   - Silver: cleaned/transformed data
+--   - Gold: analytics/reporting data
+-- ============================================================
 
 CREATE SCHEMA IF NOT EXISTS Bronze;
 
