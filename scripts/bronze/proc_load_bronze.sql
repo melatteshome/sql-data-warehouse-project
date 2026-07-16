@@ -1,8 +1,15 @@
+/* 
 -- ============================================================
--- Bronze Layer Data Load Script
--- Source folder inside Docker container: /var/lib/mysql-files/
+-- script name: bronze_load_data.sql
+-- purpose:
+	- This script loads the raw csv file to the bronze layer schema
+    - Source folder inside Docker container: /var/lib/mysql-files/
+    - The script performs the following 
+    - Truncates the bronze tables before loading data 
+-- Parameters:
+	- This script does not accept any parameters or returns any values.
 -- ============================================================
-
+*/
 
 USE Bronze;
 
