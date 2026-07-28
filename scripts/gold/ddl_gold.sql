@@ -21,3 +21,23 @@ case when ci.cst_gndr != 'n/a' then ci.cst_gndr
  left join 
     Silver.erp_loc_a101 la
  on ci.cst_key = la.cid;
+
+
+
+create view Gold.dim_products as 
+select 
+	row_number() over (order by pn.prd_start_dt , pn.prd_key) as Product_key,
+	pn.prd_id as product_id,
+    pn.cat_id as category_id,
+    pn.prd_key as product_number,
+    pn.prd_nm as product_name,
+    pn.prd_cost as product_cost,
+    pn.prd_line as product_line,
+    pn.prd_start_dt as start_date,
+    pc.cat as category,
+    pc.subcat as sub_category,
+    pc.maintenance
+ from Silver.crm_prd_info pn
+ left join Silver.erp_px_cat_g1v2 pc
+ on pn.cat_id = pc.id
+ where prd_end_dt is null
